@@ -6,20 +6,19 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-import com.PracticeSB.Domain.videogames;
+import com.PracticeSB.Domain.Videogames;
 
 @Repository
+public interface VGRepository extends JpaRepository<Videogames, Integer> {
 
-public interface VGRepository extends JpaRepository<videogames, Integer> {
+    @Query("from Videogames v order by v.name")
+    List<Videogames> findGames();
 
-    @Query("from videogames v order by v.name")
-    List<videogames> findGames();
+    @Query("from Videogames v where v.distributor.id = ?1 order by v.name")
+    List<Videogames> findPublisher(int distributor);
 
-    @Query("from videogames v where v.distribuidor.id = ?1 order by v.name")
-    List<videogames> findPublisher(int distribuidor);
-
-    //@Query("from videogames v where v.name like %?1%")
-    List<videogames> findByNameContaining(String search);
+    //@Query("from Videogames v where v.name like %?1%")
+    List<Videogames> findByNameContaining(String search);
 }
     
 

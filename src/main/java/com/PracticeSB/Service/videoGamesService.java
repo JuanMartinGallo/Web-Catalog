@@ -1,6 +1,6 @@
 package com.PracticeSB.Service;
 
-import com.PracticeSB.Domain.videogames;
+import com.PracticeSB.Domain.Videogames;
 
 import com.PracticeSB.Repository.VGRepository;
 
@@ -11,27 +11,25 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-
-public class videoGamesService {
+public class VideoGamesService {
 
     @Autowired
-
     private VGRepository vgRepo;
         
     
-    public List<videogames> buscarDestacados() {
+    public List<Videogames> searchHighlights() {
         return vgRepo.findGames();
     }
 
-    public List<videogames> buscarDistribuidor(int distribuidor) {
-        return vgRepo.findPublisher(distribuidor);
+    public List<Videogames> searchDistributor(int distributor) {
+        return vgRepo.findPublisher(distributor);
     }
 
-    public List<videogames> search(String search) {
+    public List<Videogames> search(String search) {
         return vgRepo.findByNameContaining(search);
     }
 
-    public videogames saveGame(videogames videogame) {
+    public Videogames saveGame(Videogames videogame) {
         return vgRepo.save(videogame);
     }
 }

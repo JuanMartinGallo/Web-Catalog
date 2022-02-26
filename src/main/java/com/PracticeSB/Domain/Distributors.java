@@ -6,21 +6,20 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
 @Entity
-
-public class distribuidores {
+public class Distributors {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String name;
     private String webSite;
 
-    public distribuidores(Integer id, String name, String webSite) {
+    public Distributors(Integer id, String name, String webSite) {
         this.id = id;
         this.name = name;
         this.webSite = webSite;
     }
 
-    public distribuidores() {
+    public Distributors() {
     }
 
     public Integer getId() {

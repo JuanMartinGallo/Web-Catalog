@@ -8,8 +8,7 @@ import javax.persistence.ManyToOne;
 
 
 @Entity
-
-public class videogames{
+public class Videogames{
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,17 +17,17 @@ public class videogames{
     private String description;
     private String imgUrl;
     @ManyToOne
-    private distribuidores distribuidor;
+    private Distributors distributor;
 
-    public videogames(Integer id, String name, String description, String imgUrl, distribuidores distribuidor) {
+    public Videogames(Integer id, String name, String description, String imgUrl, Distributors distributor) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.imgUrl = imgUrl;
-        this.distribuidor = distribuidor;
+        this.distributor = distributor;
     }
 
-    public videogames() {
+    public Videogames() {
     }
 
     public Integer getId() {
@@ -63,16 +62,16 @@ public class videogames{
         this.imgUrl = imgUrl;
     }
 
-    public distribuidores getDistribuidor() {
-        return distribuidor;
+    public Distributors getDistributor() {
+        return distributor;
     }
 
-    public void setDistribuidor(distribuidores distribuidor) {
-        this.distribuidor = distribuidor;
+    public void setDistributor(Distributors distributor) {
+        this.distributor = distributor;
     }
 
     @Override
     public String toString() {
-        return "videogames{" + "id=" + id + ", name=" + name + ", description=" + description + ", imgUrl=" + imgUrl + ", distribuidor=" + distribuidor + '}';
+        return "videogames{" + "id=" + id + ", name=" + name + ", description=" + description + ", imgUrl=" + imgUrl + ", distributor=" + distributor + '}';
     } 
 }
